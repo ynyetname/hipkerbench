@@ -1,0 +1,25 @@
+# Core -- needed everywhere, including for the tests
+numpy>=1.24
+pytest>=7.4
+
+# Retrieval (file 8). Pulls torch as a dependency.
+sentence-transformers>=3.0
+
+# Generation and training (files 9, 12). GPU only.
+transformers>=4.44
+accelerate>=0.33
+bitsandbytes>=0.43        # 4-bit quantisation; no Windows wheels before 0.43
+peft>=0.12                # LoRA adapters
+datasets>=2.20
+
+# PyTorch is deliberately NOT pinned here.
+#
+# `pip install torch` gives the CPU-only build, which silently ignores your GPU
+# (torch.version.cuda prints None). Install it explicitly for your CUDA version:
+#
+#   pip install torch --index-url https://download.pytorch.org/whl/cu126
+#
+# Match the index-url to your nvcc: a torch built for 12.6 against nvcc 13.x
+# produces compile errors that look nothing like a version problem.
+# On Kaggle and Colab, torch is preinstalled and already correct -- do not
+# reinstall it there.
