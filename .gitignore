@@ -1,0 +1,25 @@
+# Outputs and generated data
+data/
+*.npz
+*.jsonl
+
+# Someone else's repo -- clone it separately
+KernelBench/
+hip-nvidia/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets (needed from file 11 onward for the synthetic-data API key)
+.env
